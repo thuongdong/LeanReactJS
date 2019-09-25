@@ -23,6 +23,24 @@
   color: #61dafb;
 }
 
+.mt-100 {
+  margin-top: 100px;
+}
+#content {
+  padding: 20px;
+  border: solid 3px red;
+}
+span {
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+.active {
+  border: solid 3px darkorange;
+}
+.button-reset {
+  padding-top: 20px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
