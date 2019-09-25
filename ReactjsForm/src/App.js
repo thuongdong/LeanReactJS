@@ -6,14 +6,16 @@ class App extends React.Component {
     super(props)
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      description: '',
+      gender: 'male'
     }
     this.onHandleChange = this.onHandleChange.bind(this)
     this.onHandleSubmit = this.onHandleSubmit.bind(this)
   }
   onHandleChange(event) {
     var target = event.target
-    var name = target.name // name: username, password
+    var name = target.name // name: username, password, description, gender
     var value = target.value
     this.setState({
       [name]: value
@@ -38,11 +40,22 @@ class App extends React.Component {
                   <legend>Form title</legend>
                   <div className="form-group">
                     <label>Username: </label>
-                    <input type="text" className="form-control" name="username" onChange={this.onHandleChange} />
+                    <input type="text" className="form-control" name="username" value={this.state.username} onChange={this.onHandleChange} />
                   </div>
                   <div className="form-group">
                     <label>Password: </label>
                     <input type="password" className="form-control" name="password" onChange={this.onHandleChange} />
+                  </div>
+                  <div className="form-group">
+                    <label>Description: </label>
+                    <textarea className="form-control" name="description" value={this.state.description} onChange={this.onHandleChange} />
+                  </div>
+                  <div className="form-group">
+                    <label>Gender: </label>
+                    <select className="form-control" name="gender" value={this.state.gender} onChange={this.onHandleChange} >
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
                   </div>
                   <button type="submit" className="btn btn-primary">Submit</button>&nbsp;
                   <button type="reset" className="btn btn-warning">Reset</button>
