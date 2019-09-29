@@ -61,9 +61,18 @@ class App extends React.Component {
       isDisplayForm: !this.state.isDisplayForm
     })
   }
+  onSubmit = (data) => {
+    var { tasks } = this.state
+    data.id = this.guid()
+    tasks.push(data)
+    this.setState ({
+      tasks: tasks
+    })
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }
   render() {
     var { tasks, isDisplayForm } = this.state //var tasks = this.state.tasks
-    var elementForm = isDisplayForm ? <TaskForm onCloseForm={this.onCloseForm} /> : ''
+    var elementForm = isDisplayForm ? <TaskForm onCloseForm={this.onCloseForm} onSubmit={this.onSubmit}/> : ''
     return (
       <div className="container">
         <div className="text-center">
@@ -76,9 +85,6 @@ class App extends React.Component {
           <div className={isDisplayForm ? 'col-xs-8 col-sm-8 col-md-8 col-lg-8' : 'col-xs-12 col-sm-12 col-md-12 col-lg-12'}>
             <button type="button" className="btn btn-primary" onClick={this.onToggleForm}>
               <span className="fas fa-plus mr-5"></span>Them cong viec
-            </button>
-            &nbsp;<button type="button" className="btn btn-warning" onClick={this.onGenateData}>
-              Them cong viec
             </button>
             <Control />
             <TaskList tasks={tasks} />
