@@ -12,7 +12,7 @@ class App extends React.Component {
       isDisplayForm: false
     }
   }
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     if (localStorage && localStorage.getItem('tasks')) {
       var tasks = JSON.parse(localStorage.getItem('tasks'))
       this.setState({
