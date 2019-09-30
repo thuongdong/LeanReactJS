@@ -34,7 +34,7 @@ class TaskSearchControl extends React.Component {
           <span className="input-group-btn">
             <button className="btn btn-primary" type="button" onClick={this.onSearch}>
               <span className="fa fa-search mr-5"></span>Tìm
-                        </button>
+            </button>
           </span>
         </div>
       </div>
