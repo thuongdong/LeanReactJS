@@ -26,3 +26,10 @@ export const closeForm = (task) => {
     task
   }
 }
+
+export const updateStatus = (id) => {
+  return {
+    type: types.UPDATE_STATUS_TASK,
+    id
+  }
+}
