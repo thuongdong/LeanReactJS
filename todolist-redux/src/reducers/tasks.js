@@ -19,8 +19,6 @@ var findIndex = (tasks, id) => {
 }
 var myReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.LIST_ALL:
-      return state
     case types.ADD_TASK:
       var newTask = {
         id: randomId(),
