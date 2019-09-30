@@ -3,13 +3,14 @@ import './App.css';
 import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
 import TaskControl from './components/TaskControl';
+import { connect } from 'react-redux';
+import * as actions from './actions/index'
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      isDisplayForm: false,
       keyword: '',
       filterName: '',
       filterStatus: '-1',
@@ -31,22 +32,7 @@ class App extends React.Component {
   }
 
   onToggleForm = () => {
-    if (this.state.itemEditing !== null) {
-      this.setState({
-        itemEditing: null
-      });
-    } else {
-      this.setState({
-        isDisplayForm: !this.state.isDisplayForm
-      });
-    }
-  }
-
-  onExitForm = () => {
-    this.setState({
-      isDisplayForm: false,
-      itemEditing: null
-    });
+    this.props.onToggleForm()
   }
 
   onDeleteTask = (id) => {
@@ -89,7 +75,6 @@ class App extends React.Component {
 
   render() {
     var {
-      isDisplayForm,
       // keyword,
       filterName,
       filterStatus,
@@ -97,6 +82,8 @@ class App extends React.Component {
       sortBy,
       sortValue
     } = this.state;
+
+    var { isDisplayForm } = this.props
 
     // tasks = tasks.filter((task) => {
     //     return task.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
@@ -129,11 +116,8 @@ class App extends React.Component {
     //         else return 0;
     //     });
     // }
-    var elmForm = isDisplayForm === true ? <TaskForm
-      onSave={this.onSave}
-      onExitForm={this.onExitForm}
-      itemEditing={itemEditing}
-    /> : '';
+    var elmForm = isDisplayForm === true ?
+      <TaskForm itemEditing={itemEditing} /> : '';
     return (
       <div className="container">
         <div className="text-center">
@@ -146,7 +130,7 @@ class App extends React.Component {
           <div className={isDisplayForm === true ? 'col-xs-8 col-sm-8 col-md-8 col-lg-8' : 'col-xs-12 col-sm-12 col-md-12 col-lg-12'}>
             <button type="button" className="btn btn-primary" onClick={this.onToggleForm} >
               <span className="fa fa-plus mr-5"></span>Thêm Công Việc
-                        </button>
+            </button>
             <TaskControl
               onSearch={this.onSearch}
               onSort={this.onSort}
@@ -167,4 +151,19 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isDisplayForm: state.isDisplayForm
+  }
+}
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    onToggleForm: () => {
+      dispatch(actions.toggleForm())
+    },
+    onCloseForm: () => {
+      dispatch(actions.closeForm())
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

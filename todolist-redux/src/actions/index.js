@@ -1,9 +1,9 @@
 import * as types from './../constant/ActionTypes';
 
 export const listALl = () => {
-	return {
-		type: types.LIST_ALL
-	}
+  return {
+    type: types.LIST_ALL
+  }
 }
 
 export const addTask = (task) => {
