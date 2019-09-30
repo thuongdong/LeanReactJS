@@ -50,9 +50,9 @@ class TaskItem extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {}
+  return { state }
 }
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onUpdateStatus: (id) => {
       dispatch(actions.updateStatus(id))

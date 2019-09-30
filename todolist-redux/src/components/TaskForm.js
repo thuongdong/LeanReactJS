@@ -111,11 +111,9 @@ class TaskForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {
-
-  }
+  return {}
 }
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onAddTask: (task) => {
       dispatch(actions.addTask(task))
