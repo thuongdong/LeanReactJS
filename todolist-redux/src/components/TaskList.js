@@ -30,7 +30,6 @@ class TaskList extends React.Component {
           key={task.id}
           task={task}
           index={index + 1}
-          onUpdateStatus={this.props.onUpdateStatus}
           onDeleteTask={this.props.onDeleteTask}
           onSelectedItem={this.props.onSelectedItem}
         />
