@@ -1,5 +1,7 @@
-import * as types from './../constant/ActionTypes';
+import * as types from './../constant/ActionTypes'
 
+var id = ''
+var index = -1
 var s4 = () => {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
@@ -29,14 +31,20 @@ var myReducer = (state = initialState, action) => {
       localStorage.setItem('tasks', JSON.stringify(state))
       return [...state]
     case types.UPDATE_STATUS_TASK:
-      var id = action.id
-      var index = findIndex(state, id);
+      id = action.id
+      index = findIndex(state, id)
       state[index].status = !state[index].status
-      localStorage.setItem('tasks', JSON.stringify(state));
+      localStorage.setItem('tasks', JSON.stringify(state))
+      return [...state]
+    case types.DELETE_TASK:
+      id = action.id
+      index = findIndex(state, id)
+      state.splice(index, 1)
+      localStorage.setItem('tasks', JSON.stringify(state))
       return [...state]
     default:
       return state
   }
 }
 
-export default myReducer;
+export default myReducer

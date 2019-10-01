@@ -1,4 +1,4 @@
-import * as types from './../constant/ActionTypes';
+import * as types from './../constant/ActionTypes'
 
 export const addTask = (task) => {
   return {
@@ -7,23 +7,28 @@ export const addTask = (task) => {
   }
 }
 
-export const toggleForm = (task) => {
+export const toggleForm = () => {
   return {
-    type: types.TOGGLE_FORM,
-    task
+    type: types.TOGGLE_FORM
   }
 }
 
-export const closeForm = (task) => {
+export const closeForm = () => {
   return {
-    type: types.CLOSE_FORM,
-    task
+    type: types.CLOSE_FORM
   }
 }
 
 export const updateStatus = (id) => {
   return {
     type: types.UPDATE_STATUS_TASK,
+    id
+  }
+}
+
+export const deleteTask = (id) => {
+  return {
+    type: types.DELETE_TASK,
     id
   }
 }
