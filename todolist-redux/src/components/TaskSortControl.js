@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 class TaskSortControl extends React.Component {
 
@@ -70,4 +70,4 @@ class TaskSortControl extends React.Component {
   }
 }
 
-export default TaskSortControl;
+export default TaskSortControl

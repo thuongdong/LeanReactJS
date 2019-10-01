@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 import * as actions from './../actions/index'
 
 class TaskForm extends React.Component {
@@ -34,9 +34,9 @@ class TaskForm extends React.Component {
   }
 
   onHandleChange = (event) => {
-    var target = event.target;
-    var name = target.name;
-    var value = target.type === 'checkbox' ? target.checked : target.value;
+    var target = event.target
+    var name = target.name
+    var value = target.type === 'checkbox' ? target.checked : target.value
     this.setState({
       [name]: value
     });
@@ -123,4 +123,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskForm)

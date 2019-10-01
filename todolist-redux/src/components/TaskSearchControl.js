@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 class TaskSearchControl extends React.Component {
 
@@ -42,4 +42,4 @@ class TaskSearchControl extends React.Component {
   }
 }
 
-export default TaskSearchControl;
+export default TaskSearchControl

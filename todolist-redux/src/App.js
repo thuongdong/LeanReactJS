@@ -1,9 +1,9 @@
-import React from 'react';
-import './App.css';
-import TaskList from './components/TaskList';
-import TaskForm from './components/TaskForm';
-import TaskControl from './components/TaskControl';
-import { connect } from 'react-redux';
+import React from 'react'
+import './App.css'
+import TaskList from './components/TaskList'
+import TaskForm from './components/TaskForm'
+import TaskControl from './components/TaskControl'
+import { connect } from 'react-redux'
 import * as actions from './actions/index'
 
 class App extends React.Component {
@@ -33,17 +33,6 @@ class App extends React.Component {
 
   onToggleForm = () => {
     this.props.onToggleForm()
-  }
-
-  onDeleteTask = (id) => {
-    var { tasks } = this.state;
-    var index = this.findIndex(id);
-    tasks.splice(index, 1);
-    this.setState({
-      tasks: tasks
-    });
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    this.onExitForm();
   }
 
   onSearch = (keyword) => {
@@ -138,7 +127,6 @@ class App extends React.Component {
               sortValue={sortValue}
             />
             <TaskList
-              onDeleteTask={this.onDeleteTask}
               filterName={filterName}
               filterStatus={filterStatus}
               onFilter={this.onFilter}
@@ -166,4 +154,4 @@ const mapDispatchToProps = (dispatch, props) => {
     }
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App)

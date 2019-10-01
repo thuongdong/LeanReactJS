@@ -1,6 +1,6 @@
-import React from 'react';
-import TaskItem from './TaskItem';
-import { connect } from 'react-redux';
+import React from 'react'
+import TaskItem from './TaskItem'
+import { connect } from 'react-redux'
 
 class TaskList extends React.Component {
 
@@ -30,7 +30,6 @@ class TaskList extends React.Component {
           key={task.id}
           task={task}
           index={index + 1}
-          onDeleteTask={this.props.onDeleteTask}
           onSelectedItem={this.props.onSelectedItem}
         />
       )
@@ -88,4 +87,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(TaskList);
+export default connect(mapStateToProps, null)(TaskList)
